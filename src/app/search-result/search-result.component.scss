@@ -1,0 +1,14 @@
+
+.search-result {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+
+    &__title {
+        font: 30px/35px Arial;
+        margin: 0 0 50px;
+    }
+}

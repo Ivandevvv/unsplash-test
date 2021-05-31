@@ -1,0 +1,11 @@
+
+<section class="search-result">
+    <a routerLink="/" class="g-back-btn">Вернуться на главную</a>
+
+    <div class="search-result__container">
+        <h1 class="search-result__title">Результаты поиска по запросу: "{{searchQuery}}"</h1>
+        <app-catalog-photos
+            [outputPhoto]="outputImages"
+        ></app-catalog-photos>
+    </div>
+</section>

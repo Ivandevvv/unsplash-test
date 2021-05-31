@@ -1,4 +1,17 @@
 
 <section class="search">
-    <p>seach works!</p>
+    <div class="search__container">
+        <h1 class="search__title">Найди "свое" фото!</h1>
+
+        <form>
+            <label class="search__input">
+                <input (keydown.enter)="showSearchResult()"
+                    name="search-query"
+                    placeholder="Search free photos..."
+                    [(ngModel)]="inputControl" type="text">
+                
+                <button class="search__input-btn" (click)="showSearchResult()"></button>
+            </label>
+        </form>
+    </div>
 </section>

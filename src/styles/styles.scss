@@ -1,2 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import './reset/reset';
+
+[class*='__container'] {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.g-back-btn {
+    font: 16px/20px Arial;
+    align-self: flex-start;
+    margin: 0 0 20px;
+}

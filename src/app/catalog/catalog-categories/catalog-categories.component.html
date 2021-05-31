@@ -1,1 +1,13 @@
-<p>catalog-categories works!</p>
+
+<section class="catalog-categories">
+
+    <div class="catalog-categories__container">
+
+        <a [routerLink]="['/search', category.title]" class="catalog-categories__item" *ngFor="let category of categoryList">
+            <figure class="catalog-categories__item-image">
+                <img [src]="category.cover_photo.urls.small" alt="category-preview">
+            </figure>
+            <p class="catalog-categories__item-name">{{category.title}}</p>
+        </a>
+    </div>
+</section>

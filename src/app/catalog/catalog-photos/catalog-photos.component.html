@@ -1,1 +1,10 @@
-<p>catalog-photos works!</p>
+
+<section class="catalog-photos">
+    <div class="catalog-photos__container">
+        <a [routerLink]="['/photo', item.id]" class="catalog-photos__link" *ngFor="let item of outputPhoto">
+            <figure class="catalog-photos__link-image" >
+                <img [src]="item.urls.small" alt="image">
+            </figure>
+        </a>
+    </div>
+</section>

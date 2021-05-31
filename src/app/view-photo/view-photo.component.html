@@ -1,0 +1,27 @@
+
+<section class="view-photo" *ngIf="dataImage">
+    <a routerLink="/" class="g-back-btn">Вернуться на главную</a>
+
+    <div class="view-photo__container">
+        <div class="view-photo__wrap view-photo__wrap--for-image">
+            <figure class="view-photo__image">
+                <img [src]="dataImage.urls?.regular" alt="image">
+            </figure>
+            <div class="view-photo__controls">
+                <a [href]="dataImage.links.download" class="view-photo__controls-download" target="_blank">
+                    Загрузить фото в полном размере
+                </a>
+                <button class="view-photo__controls-favorite">
+                    Добавить в избранное
+                </button>
+            </div>
+        </div>
+        <div class="view-photo__wrap view-photo__wrap--for-related">
+            <div class="view-photo__related">
+                <figure class="view-photo__related-image" *ngFor="let item of getRelatedPhoto()">
+                    <img [src]="item.urls.thumb" alt="thumb">
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>

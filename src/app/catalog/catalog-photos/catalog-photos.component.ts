@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { DataService } from './../../services/data.service';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-catalog-photos',
-  templateUrl: './catalog-photos.component.html',
-  styleUrls: ['./catalog-photos.component.scss']
+    selector: 'app-catalog-photos',
+    templateUrl: './catalog-photos.component.html',
+    styleUrls: ['./catalog-photos.component.scss']
 })
-export class CatalogPhotosComponent implements OnInit {
+export class CatalogPhotosComponent {
 
-  constructor() { }
+    @Input() outputPhoto: any[];
 
-  ngOnInit(): void {
-  }
-
+    constructor() { }
 }
