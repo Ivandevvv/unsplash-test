@@ -1,10 +1,18 @@
 
 <section class="catalog-photos">
     <div class="catalog-photos__container">
-        <a [routerLink]="['/photo', item.id]" class="catalog-photos__link" *ngFor="let item of outputPhoto">
-            <figure class="catalog-photos__link-image" >
-                <img [src]="item.urls.small" alt="image">
-            </figure>
-        </a>
+        <div class="catalog-photos__link" *ngFor="let item of outputPhoto">
+            <a [routerLink]="['/photo', item.id]">
+                <figure class="catalog-photos__link-image" >
+                    <img [src]="item.urls.small" alt="image">
+                </figure>
+            </a>
+            <button class="catalog-photos__link-favorite" [class.active]="isFavorite(item.id)"
+              (click)="switchFavorite(item.id)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="28" viewBox="0 0 34 32">
+                    <path stroke="red" stroke-width="2" fill="transparent" d="M20.532 26.301A470.797 470.797 0 0 0 17 29.531c-1.23-1.14-2.398-2.2-3.533-3.23-6.91-6.273-11.475-10.417-11.475-15.865 0-2.252.704-4.343 1.983-5.89 1.294-1.563 3.09-2.424 5.056-2.424 2.731 0 4.497 1.793 5.497 3.297a12.939 12.939 0 0 1 1.525 3.23c.133.437.516.732.947.732.431 0 .814-.295.947-.732a12.94 12.94 0 0 1 1.525-3.23c1-1.504 2.766-3.297 5.497-3.297 1.967 0 3.762.861 5.056 2.425 1.279 1.546 1.983 3.637 1.983 5.889 0 5.448-4.565 9.592-11.476 15.865z"/>
+                </svg>                
+            </button>
+        </div>
     </div>
 </section>

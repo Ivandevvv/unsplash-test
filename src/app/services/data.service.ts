@@ -6,24 +6,32 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
-    private url = 'https://api.unsplash.com';
+    private url = '//api.unsplash.com';
     private key = '?client_id=kgv7iI8CckhSAYQHKPNQ4YBi3HuI4dUemuBkfCT6O4s';
 
     constructor(
         private httpClient: HttpClient
-    ) { }
+    ) {
+        ['get', 'post'].forEach(method => {
+            const api = this.url
+            const old = this.httpClient[method];
+            this.httpClient[method] = function(url, ...args) {
+                return old.call(this, `${api}${url}`, ...args)
+            }
+        });
+    }
 
     getPhotos() {
-        return this.httpClient.get<any[]>(`${this.url}/photos/${this.parseParams()}`);
+        return this.httpClient.get<any[]>(`/photos/${this.parseParams()}`);
     }
     searchResult(query) {
-        return this.httpClient.get(`${this.url}/search/photos/${this.parseParams({ query })}`);
+        return this.httpClient.get(`/search/photos/${this.parseParams(query)}`);
     }
     getCollections() {
-        return this.httpClient.get(`${this.url}/collections/${this.key}`);
+        return this.httpClient.get(`/collections/${this.key}`);
     }
     getPhotoById(id) {
-        return this.httpClient.get(`${this.url}/photos/${id}/${this.key}`);
+        return this.httpClient.get(`/photos/${id}/${this.key}`);
     }
 
     private parseParams(query = {}): string {
