@@ -8,19 +8,33 @@
                 <img [src]="dataImage.urls?.regular" alt="image">
             </figure>
             <div class="view-photo__controls">
-                <a [href]="dataImage.links.download" class="view-photo__controls-download" target="_blank">
+                <a [href]="dataImage.urls?.full" class="view-photo__controls-download" target="_blank">
                     Загрузить фото в полном размере
                 </a>
                 <button class="view-photo__controls-favorite">
                     Добавить в избранное
                 </button>
             </div>
+            <div class="view-photo__shared">
+                <ng-container *ngFor="let btn of shareBtn">
+                    <share-button
+                        [button]="btn.type"
+                        [title]="btn.title"
+                        [description]="btn.description"
+                    ></share-button>
+                </ng-container>
+            </div>
         </div>
         <div class="view-photo__wrap view-photo__wrap--for-related">
-            <div class="view-photo__related">
-                <figure class="view-photo__related-image" *ngFor="let item of getRelatedPhoto()">
-                    <img [src]="item.urls.thumb" alt="thumb">
-                </figure>
+            <div class="view-photo__wrap view-photo__wrap--skicky">
+                <p class="view-photo__wrap-name">Похожие фото</p>
+                <a class="view-photo__related">
+                    <a [routerLink]="['/photo', item.id]"
+                      class="view-photo__related-image" 
+                      *ngFor="let item of getRelatedPhoto()">
+                        <img [src]="item.urls.thumb" alt="thumb">
+                    </a>
+                </a>
             </div>
         </div>
     </div>
